@@ -19,7 +19,7 @@ function App() {
         const res = await axios.get(API_URL);
         setData(res.data);
       } catch (err) {
-        setError("Error to fatch data", error);
+        setError("Error to fatch data");
         alert("Error fetching data");
       }
     };
@@ -28,7 +28,7 @@ function App() {
 
   //calculate total pages
 
-  const totalPages = Math.floor(data.length / itemsPerPage);
+  const totalPages = Math.ceil(data.length / itemsPerPage);
 
   //currrent data on display
 
