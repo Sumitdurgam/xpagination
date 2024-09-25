@@ -20,6 +20,7 @@ function App() {
         setData(res.data);
       } catch (err) {
         setError("Error to fatch data", error);
+        alert("Error fetching data");
       }
     };
     fetchData();
@@ -75,7 +76,6 @@ function App() {
           </tbody>
         </table>
         </center>
-
       </Box>
 
       <div className="pagination">
@@ -88,7 +88,6 @@ function App() {
         </button>
       </div>
     </div>
-
     </>
   );
 }
