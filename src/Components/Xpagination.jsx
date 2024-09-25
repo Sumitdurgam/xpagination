@@ -1,10 +1,12 @@
-import './App.css';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Box from '@mui/material/Box';
+import "./Xpagination.module.css";
 
+// const data = [
+//     {id: {}, name: {}, email: {}, role: {}},
+// ]
 
-function App() {
+function Xpagination() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
@@ -49,20 +51,18 @@ function App() {
   };
 
   return (
-    <>
     <div className="container">
       <h1>Employees Data Table</h1>
-      <Box className="employee-table">
-        <center>
+      <div className="employee-table">
         <table>
-          <thead>
+          {/* <thead> */}
             <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
             </tr>
-          </thead>
+          {/* </thead> */}
           <tbody>
             {currentData.map((employee) => (
               <tr key={employee.id}>
@@ -74,9 +74,7 @@ function App() {
             ))}
           </tbody>
         </table>
-        </center>
-
-      </Box>
+      </div>
 
       <div className="pagination">
         <button onClick={handlePrevious} disabled={currentPage === 1}>
@@ -88,10 +86,7 @@ function App() {
         </button>
       </div>
     </div>
-
-    </>
   );
 }
 
-export default App;
-
+export default Xpagination;

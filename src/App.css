@@ -1,38 +1,88 @@
-.App {
+table{
+  border: 2px solid black;
+  width: 1500px;
+  height: 400px;
+  padding-left: 10px;
+
+}
+
+/* Box {
+  border-radius: 10px;
+  margin-top: 1rem;
+  width: 50%;
+  height: 150px;
+  padding: 10px 10px 10px 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 10px 0px red;
+} */
+
+th{
+  border-bottom: 1px solid black;
+  padding-left: 10px;
+  /* width: 100px; */
+}
+
+tb{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* .employee-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+} */
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  box-shadow: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.employee-table thead{
+  background-color: #49a96e;
   color: white;
+  text-align: left;
+  width: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* .employee-table th, .employee-table td {
+  padding: 10px;
+} */
+
+button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #333;
+  background-color: #49a96e;
+  transition: background-color 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  background-color: #e4ab0f;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: #49a96e;
+  color: #0d0000;
+} 
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
