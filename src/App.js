@@ -19,12 +19,12 @@ function App() {
         const res = await axios.get(API_URL);
         setData(res.data);
       } catch (err) {
-        setError("Error to fatch data");
+        setError("Error to fatch data", error);
         alert("Error fetching data");
       }
     };
     fetchData();
-  }, [error]);
+  }, []);
 
   //calculate total pages
 
