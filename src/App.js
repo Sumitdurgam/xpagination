@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Box from '@mui/material/Box';
+// import { Alert } from 'react-alert'
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         setData(res.data);
       } catch (err) {
         setError("Error to fatch data", error);
-        alert("Error fetching data");
+        alert("Error fetching data"); // Alert message for API failure
       }
     };
     fetchData();
@@ -37,11 +38,15 @@ function App() {
     currentPage * itemsPerPage
   );
 
+   // Handle the Previous button
+
   const handlePrevious = () => {
     if (currentPage > 1) {
       setCurrentPage((prevPage) => prevPage - 1);
     }
   };
+
+  // Handle the   Next button
 
   const handleNext = () => {
     if (currentPage < totalPages) {
@@ -49,48 +54,63 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (data.length > 0 && currentPage > totalPages) {
+      setCurrentPage(1);
+    }
+  }, [data, totalPages]);
+
   return (
-    <>
     <div className="container">
       <h1>Employees Data Table</h1>
       <Box className="employee-table">
         <center>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentData.map((employee) => (
-              <tr key={employee.id}>
-                <td>{employee.id}</td>
-                <td>{employee.name}</td>
-                <td>{employee.email}</td>
-                <td>{employee.role}</td>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {currentData.length > 0 ? (
+                currentData.map((employee) => (
+                  <tr key={employee.id}>
+                    <td>{employee.id}</td>
+                    <td>{employee.name}</td>
+                    <td>{employee.email}</td>
+                    <td>{employee.role}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4">No Data Available</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </center>
       </Box>
 
+      {/* Pagination Controls */}
       <div className="pagination">
         <button onClick={handlePrevious} disabled={currentPage === 1}>
           Previous
         </button>
-        <span> {currentPage} </span>
+        <span>
+           {currentPage}
+        </span>
         <button onClick={handleNext} disabled={currentPage === totalPages}>
           Next
         </button>
       </div>
+
+      {/* Error Handling */}
+      {error && <div className="error-message">{error}</div>}
     </div>
-    </>
   );
 }
 
 export default App;
-
