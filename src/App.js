@@ -104,7 +104,7 @@ function App() {
 
       {/* Pagination Controls */}
       <div className="pagination">
-        <button onClick={handlePrevious} disabled={currentPage === 1}>
+        <button onClick={handlePrevious} disabled={currentPage === -1}>
           Previous
         </button>
         <span>

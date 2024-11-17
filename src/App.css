@@ -75,3 +75,7 @@ button:disabled {
   font-weight: bold;
   margin-top: 20px;
 }
+
+.span{
+  background-color: #49a96e;
+}
