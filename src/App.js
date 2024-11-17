@@ -20,8 +20,10 @@ function App() {
         const res = await axios.get(API_URL);
         setData(res.data);
       } catch (err) {
-        setError("Error to fatch data", error);
-        alert("Error fetching data"); // Alert message for API failure
+        const errorMessage = "Failed to fetch data"; 
+        setError(errorMessage);
+        alert(errorMessage); 
+        console.error("Error fetching data:", err); 
       }
     };
     fetchData();
