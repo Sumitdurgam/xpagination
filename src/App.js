@@ -40,9 +40,13 @@ function App() {
 
    // Handle the Previous button
 
-  const handlePrevious = () => {
+   const handlePrevious = () => {
     if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
+      setCurrentPage((prevPage) => {
+        const newPage = prevPage - 1;
+        console.log(`Navigating to previous page: ${newPage}`);
+        return newPage;
+      });
     }
   };
 
@@ -50,7 +54,11 @@ function App() {
 
   const handleNext = () => {
     if (currentPage < totalPages) {
-      setCurrentPage((prevPage) => prevPage + 1);
+      setCurrentPage((prevPage) => {
+        const newPage = prevPage + 1;
+        console.log(`Navigating to next page: ${newPage}`);
+        return newPage;
+      });
     }
   };
 
